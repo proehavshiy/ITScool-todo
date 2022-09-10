@@ -5,7 +5,7 @@ interface IButton {
   styleClass?: string;
   id?: string;
   type?: 'button' | 'submit' | 'reset';
-  text: string;
+  text?: string;
   isDisabled?: boolean;
   isActive?: boolean;
   handleClick?: () => void;
