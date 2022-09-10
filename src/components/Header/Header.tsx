@@ -5,7 +5,9 @@ import './Header.css';
 
 const Header: FC = () => {
 
-  const handleToggleAllBtn = () => { }
+  const handleToggleAllBtn = () => {
+    console.log('переключили все туду');
+  }
   const addNewTodo = (newTodo: string) => {
     console.log('добавили новую туду', newTodo);
   }
