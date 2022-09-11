@@ -11,8 +11,8 @@ const App: FC = () => {
     {
       id: '1',
       isDone: false,
-      isDisplay: true,
-      isEditing: false,
+      // isDisplay: true,
+      // isEditing: false,
       value: 'example todo',
     }
   ])
@@ -30,7 +30,7 @@ const App: FC = () => {
       default:
         return todos
     }
-  }
+  };
 
   return (
     <div className='app'>

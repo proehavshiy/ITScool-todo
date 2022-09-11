@@ -35,8 +35,8 @@ const Header: FC<IHeader> = ({ todoItems, setTodoItems }) => {
     {
       id: uniqid(),
       isDone: false,
-      isDisplay: true,
-      isEditing: false,
+      // isDisplay: true,
+      // isEditing: false,
       value: newTodoValue,
     }]);
   }
