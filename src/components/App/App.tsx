@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { ITodo } from '../../types';
 import Button from '../Button/Button';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import TodoListView from '../TodoListView/TodoListView';
 import './App.css';
@@ -19,11 +20,10 @@ const App: FC = () => {
   return (
     <div className='app'>
       <Header />
-      {/* <Button text='click' /> */}
       <main>
         <TodoListView todoItems={todos} />
       </main>
-      App
+      <Footer />
     </div>
   )
 }
