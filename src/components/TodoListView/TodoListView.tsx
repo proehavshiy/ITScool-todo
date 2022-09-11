@@ -6,7 +6,6 @@ import TodoItem from './TodoItem/TodoItem';
 
 interface ITodoListView {
   todoItems: ITodo[];
-  //setTodoItems: ((newTodos: ITodo[]) => void) | ((value: React.SetStateAction<ITodo[]>) => void);
   setTodoItems: (value: React.SetStateAction<ITodo[]>) => void;
 };
 
@@ -16,6 +15,7 @@ const TodoListView: FC<ITodoListView> = ({ todoItems, setTodoItems }) => {
     setTodoItems(todoItems.filter(todo => todo.id !== id));
   };
 
+  // переключение режима редактирования тудушки
   const changeTodoStatus = (id: string | number) => {
     setTodoItems(todoItems.map(todo => {
       if (todo.id === id) todo.isDone = !todo.isDone
@@ -23,16 +23,7 @@ const TodoListView: FC<ITodoListView> = ({ todoItems, setTodoItems }) => {
     }));
   };
 
-  // const changeTodoEditingMode = (id: string | number) => {
-  //   setTodoItems((prevState) => {
-  //     prevState.map(todo => {
-  //       if (todo.id === id) todo.isEditing = !todo.isEditing;
-  //       return todo;
-  //     })
-  //     return prevState;
-  //   })
-  // }
-
+  // изменение текста тудушки
   const changeTodoValue = ({ id, newValue }: newTodoValue) => {
     setTodoItems((prevState) => {
       prevState.map(todo => {

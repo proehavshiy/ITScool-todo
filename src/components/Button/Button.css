@@ -1,11 +1,11 @@
-button {
+.button {
+  border: 1px solid transparent;
+  border-radius: 3px;
   color: inherit;
+  cursor: pointer;
   margin: 3px;
   padding: 3px 7px;
   text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  cursor: pointer;
 }
 
 .selected {
@@ -13,14 +13,13 @@ button {
 }
 
 .toggle-all {
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 60px;
-  border: none;
-  -webkit-transform: rotate(90deg);
+  height: 60px;
   transform: rotate(90deg);
-  -webkit-appearance: none;
   color: #e6e6e6;
 }
 

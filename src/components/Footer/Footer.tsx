@@ -13,23 +13,32 @@ interface IFooter {
 
 const Footer: FC<IFooter> = ({ todoItems, setTodoItems, filter, setFilter }) => {
 
+  // счетчик активных тудушек
   const todosLeft = todoItems.reduce((acc, curr) => {
-    curr.isDone === false && acc++
-    return acc
+    curr.isDone === false && acc++;
+    return acc;
   }, 0);
 
+  // переключение статуса фильтрации
   const updateFilter = (newFilterStatus: FilterStatus) => {
     setFilter({ currentStatus: newFilterStatus })
   };
 
+  // удалить разом все выполненные тудушки
   const deleteCompletedTodos = () => {
     setTodoItems(todoItems.filter(todo => !todo.isDone))
   }
 
   return (
     <footer className={'footer'}>
-      <Counter count={todosLeft} />
-      <Filters filterStatus={filter.currentStatus} updateFilter={updateFilter} deleteCompletedTodos={deleteCompletedTodos} />
+      <Counter
+        count={todosLeft}
+      />
+      <Filters
+        filterStatus={filter.currentStatus}
+        updateFilter={updateFilter}
+        deleteCompletedTodos={deleteCompletedTodos}
+      />
     </footer>
   )
 }

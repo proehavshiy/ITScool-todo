@@ -14,7 +14,7 @@ const Button: FC<IButton> = ({ styleClass = '', id = 'button', type = 'button', 
 
   return (
     <button
-      className={`${styleClass} ${isActive ? 'selected' : ''}`}
+      className={`button ${styleClass} ${isActive ? 'selected' : ''}`}
       id={id}
       type={type}
       disabled={isDisabled}

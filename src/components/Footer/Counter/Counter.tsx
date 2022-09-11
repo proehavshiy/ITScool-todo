@@ -11,8 +11,7 @@ const Counter: FC<ICounter> = ({ count }) => {
     <span className={'todo-count'}>
       <strong>
         {count}
-      </strong>
-      items left
+      </strong> items left
     </span>
   )
 }

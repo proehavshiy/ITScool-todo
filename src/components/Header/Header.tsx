@@ -12,9 +12,12 @@ interface IHeader {
 
 const Header: FC<IHeader> = ({ todoItems, setTodoItems }) => {
 
+  // переключение статусов всех тудушек в активные/выполненные
   const handleToggleAllBtn = () => {
-    // change statuses of all ToDos
     let updatedTodos = todoItems;
+
+    // здесь провека: нужна, чтобы если есть выполненные тудушки, 
+    // все остальные перевести тоже в статус выполненных.
     const checkStatuses = todoItems.every((todo) => todo.isDone === true);
 
     updatedTodos = checkStatuses
@@ -30,13 +33,12 @@ const Header: FC<IHeader> = ({ todoItems, setTodoItems }) => {
     setTodoItems(updatedTodos);
   };
 
+  // добавление новой тудушки
   const addNewTodo = (newTodoValue: string) => {
     setTodoItems([...todoItems,
     {
       id: uniqid(),
       isDone: false,
-      // isDisplay: true,
-      // isEditing: false,
       value: newTodoValue,
     }]);
   }

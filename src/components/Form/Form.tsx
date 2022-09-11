@@ -13,7 +13,7 @@ const Form: FC<IForm> = ({ handleSubmit }) => {
       onSubmit={(e) => {
         e.preventDefault();
 
-        // update store in case of not empty input
+        // добавляем тудушку только если инпут непустой и очищаем его после добавления
         if (inputVal) {
           handleSubmit(inputVal);
           setInputVal('');
