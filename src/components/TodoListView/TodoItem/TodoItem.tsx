@@ -12,7 +12,6 @@ interface ITodoItem {
 
 const TodoItem: FC<ITodoItem> = ({ toDo, deleteTodo, changeTodoStatus }) => {
   const { id, value, isDisplay } = toDo;
-  console.log('id todoitem', id);
 
   const inputRef = useRef<HTMLInputElement>(null);
 

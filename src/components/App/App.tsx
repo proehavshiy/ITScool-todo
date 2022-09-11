@@ -19,12 +19,25 @@ const App: FC = () => {
   console.log('new todos', todos);
 
   const [filter, setFilter] = useState<IFilter>({ currentStatus: 'all' });
+  console.log(filter);
+
+  const filteredTodos = () => {
+    switch (filter.currentStatus) {
+      case 'completed':
+        return todos.filter(todo => todo.isDone)
+      case 'active':
+        return todos.filter(todo => !todo.isDone)
+      default:
+        return todos
+    }
+  }
+
 
   return (
     <div className='app'>
       <Header todoItems={todos} setTodoItems={setTodos} />
       <main>
-        <TodoListView todoItems={todos} setTodoItems={setTodos} />
+        <TodoListView todoItems={filteredTodos()} setTodoItems={setTodos} />
       </main>
       <Footer todoItems={todos} filter={filter} setFilter={setFilter} />
     </div>
