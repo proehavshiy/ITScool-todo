@@ -32,14 +32,13 @@ const App: FC = () => {
     }
   }
 
-
   return (
     <div className='app'>
       <Header todoItems={todos} setTodoItems={setTodos} />
       <main>
         <TodoListView todoItems={filteredTodos()} setTodoItems={setTodos} />
       </main>
-      <Footer todoItems={todos} filter={filter} setFilter={setFilter} />
+      <Footer todoItems={todos} setTodoItems={setTodos} filter={filter} setFilter={setFilter} />
     </div>
   )
 }

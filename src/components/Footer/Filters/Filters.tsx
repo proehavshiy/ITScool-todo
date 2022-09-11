@@ -12,32 +12,18 @@ const FILTERSTATUS_ALL = 'all';
 const FILTERSTATUS_ACTIVE = 'active';
 const FILTERSTATUS_COMPLETED = 'completed';
 
-
 interface IFilters {
   filterStatus: typeof FILTERSTATUS_ALL | typeof FILTERSTATUS_ACTIVE | typeof FILTERSTATUS_COMPLETED;
   updateFilter: (filterValue: FilterStatus) => void;
+  deleteCompletedTodos: () => void;
 };
 
-const Filters: FC<IFilters> = ({ filterStatus, updateFilter }) => {
+const Filters: FC<IFilters> = ({ filterStatus, updateFilter, deleteCompletedTodos }) => {
 
-  const handleDisplayAll = () => {
-    // dispatch(displayAll())
-    // dispatch(setFilterStatus(FILTERSTATUS_ALL))
-    updateFilter(FILTERSTATUS_ALL)
-  }
-  const handleDisplayActive = () => {
-    // dispatch(displayActive())
-    // dispatch(setFilterStatus(FILTERSTATUS_ACTIVE))
-    updateFilter(FILTERSTATUS_ACTIVE)
-  }
-  const handleDisplayCompleted = () => {
-    // dispatch(displayCompleted())
-    // dispatch(setFilterStatus(FILTERSTATUS_COMPLETED))
-    updateFilter(FILTERSTATUS_COMPLETED)
-  }
-  const handleDeleteAll = () => {
-    // dispatch(deleteToDo({ deleteCompleted: true }))
-  }
+  const handleDisplayAll = () => updateFilter(FILTERSTATUS_ALL);
+  const handleDisplayActive = () => updateFilter(FILTERSTATUS_ACTIVE);
+  const handleDisplayCompleted = () => updateFilter(FILTERSTATUS_COMPLETED);
+  const handleDeleteAll = () => deleteCompletedTodos();
 
   return (
     <ul className={'filters'}>

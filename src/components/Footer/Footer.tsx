@@ -6,11 +6,12 @@ import './Footer.css';
 
 interface IFooter {
   todoItems: ITodo[];
+  setTodoItems: (newTodos: ITodo[]) => void;
   filter: IFilter;
   setFilter: (newFilterStatus: IFilter) => void;
 };
 
-const Footer: FC<IFooter> = ({ todoItems, filter, setFilter }) => {
+const Footer: FC<IFooter> = ({ todoItems, setTodoItems, filter, setFilter }) => {
 
   const todosLeft = todoItems.reduce((acc, curr) => {
     curr.isDone === false && acc++
@@ -19,12 +20,16 @@ const Footer: FC<IFooter> = ({ todoItems, filter, setFilter }) => {
 
   const updateFilter = (newFilterStatus: FilterStatus) => {
     setFilter({ currentStatus: newFilterStatus })
+  };
+
+  const deleteCompletedTodos = () => {
+    setTodoItems(todoItems.filter(todo => !todo.isDone))
   }
 
   return (
     <footer className={'footer'}>
       <Counter count={todosLeft} />
-      <Filters filterStatus={filter.currentStatus} updateFilter={updateFilter} />
+      <Filters filterStatus={filter.currentStatus} updateFilter={updateFilter} deleteCompletedTodos={deleteCompletedTodos} />
     </footer>
   )
 }
