@@ -5,3 +5,9 @@ export interface ITodo {
   isEditing: boolean;
   value: string;
 };
+
+export type FilterStatus = 'all' | 'completed' | 'active';
+
+export interface IFilter {
+  currentStatus: FilterStatus;
+}
