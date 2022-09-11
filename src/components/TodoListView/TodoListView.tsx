@@ -6,17 +6,21 @@ import TodoItem from './TodoItem/TodoItem';
 
 interface ITodoListView {
   todoItems: ITodo[];
+  setTodoItems: (newTodos: ITodo[]) => void;
 };
 
-const TodoListView: FC<ITodoListView> = ({ todoItems }) => {
-  // get arrOfToDos from redux store
-  // const arrayOfToDoItems = useSelector(state => state[LSNAME_TODO])
+const TodoListView: FC<ITodoListView> = ({ todoItems, setTodoItems }) => {
+
+  const deleteTodo = (id: string | number) => {
+    setTodoItems(todoItems.filter(todo => todo.id !== id))
+  }
 
   return (
     <ul className={'todo-list'}>
       {todoItems.map((toDo) => (
         <TodoItem
           toDo={toDo}
+          deleteTodo={deleteTodo}
           key={uniqid()}
         />
       ))}

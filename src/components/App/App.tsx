@@ -24,7 +24,7 @@ const App: FC = () => {
     <div className='app'>
       <Header todoItems={todos} setTodoItems={setTodos} />
       <main>
-        <TodoListView todoItems={todos} />
+        <TodoListView todoItems={todos} setTodoItems={setTodos} />
       </main>
       <Footer todoItems={todos} filter={filter} setFilter={setFilter} />
     </div>
