@@ -13,7 +13,21 @@ interface IHeader {
 const Header: FC<IHeader> = ({ todoItems, setTodoItems }) => {
 
   const handleToggleAllBtn = () => {
-    console.log('переключили все туду');
+    // change statuses of all ToDos
+    let updatedTodos = todoItems;
+    const checkStatuses = todoItems.every((todo) => todo.isDone === true);
+
+    updatedTodos = checkStatuses
+      ? updatedTodos.map(todo => {
+        todo.isDone = false;
+        return todo;
+      })
+      : updatedTodos.map(todo => {
+        todo.isDone = true;
+        return todo;
+      })
+
+    setTodoItems(updatedTodos);
   };
 
   const addNewTodo = (newTodoValue: string) => {
