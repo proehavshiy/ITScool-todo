@@ -16,11 +16,13 @@ const App: FC = () => {
       value: 'example todo',
     }
   ])
+  console.log('new todos', todos);
+
   const [filter, setFilter] = useState<IFilter>({ currentStatus: 'all' });
 
   return (
     <div className='app'>
-      <Header />
+      <Header todoItems={todos} setTodoItems={setTodos} />
       <main>
         <TodoListView todoItems={todos} />
       </main>

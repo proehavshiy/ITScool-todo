@@ -1,15 +1,30 @@
 import React, { FC } from 'react'
+import uniqid from 'uniqid';
+import { ITodo } from '../../types';
 import Button from '../Button/Button';
 import Form from '../Form/Form';
 import './Header.css';
 
-const Header: FC = () => {
+interface IHeader {
+  todoItems: ITodo[];
+  setTodoItems: (newTodos: ITodo[]) => void;
+};
+
+const Header: FC<IHeader> = ({ todoItems, setTodoItems }) => {
 
   const handleToggleAllBtn = () => {
     console.log('переключили все туду');
-  }
-  const addNewTodo = (newTodo: string) => {
-    console.log('добавили новую туду', newTodo);
+  };
+
+  const addNewTodo = (newTodoValue: string) => {
+    setTodoItems([...todoItems,
+    {
+      id: uniqid(),
+      isDone: false,
+      isDisplay: true,
+      isEditing: false,
+      value: newTodoValue,
+    }]);
   }
 
   return (
