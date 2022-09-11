@@ -7,16 +7,17 @@ const SUMBIT_KEYCODE = 13;
 interface ITodoItem {
   toDo: ITodo;
   deleteTodo: (id: string | number) => void;
+  changeTodoStatus: (id: string | number) => void;
 };
 
-const TodoItem: FC<ITodoItem> = ({ toDo, deleteTodo }) => {
+const TodoItem: FC<ITodoItem> = ({ toDo, deleteTodo, changeTodoStatus }) => {
   const { id, value, isDisplay } = toDo;
   console.log('id todoitem', id);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   // const dispatch = useDispatch()
-  const handleCheckBox = () => (console.log('handleCheckBox'));
+  const handleCheckBox = () => changeTodoStatus(id);
   const handleDelete = () => deleteTodo(id);
   const handleDoubleClick = () => (console.log('handleDoubleClick'));
 

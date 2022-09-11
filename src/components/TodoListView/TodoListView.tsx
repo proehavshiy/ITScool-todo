@@ -12,8 +12,15 @@ interface ITodoListView {
 const TodoListView: FC<ITodoListView> = ({ todoItems, setTodoItems }) => {
 
   const deleteTodo = (id: string | number) => {
-    setTodoItems(todoItems.filter(todo => todo.id !== id))
-  }
+    setTodoItems(todoItems.filter(todo => todo.id !== id));
+  };
+
+  const changeTodoStatus = (id: string | number) => {
+    setTodoItems(todoItems.map(todo => {
+      if (todo.id === id) todo.isDone = !todo.isDone
+      return todo;
+    }));
+  };
 
   return (
     <ul className={'todo-list'}>
@@ -21,6 +28,7 @@ const TodoListView: FC<ITodoListView> = ({ todoItems, setTodoItems }) => {
         <TodoItem
           toDo={toDo}
           deleteTodo={deleteTodo}
+          changeTodoStatus={changeTodoStatus}
           key={uniqid()}
         />
       ))}
