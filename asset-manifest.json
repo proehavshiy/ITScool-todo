@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ITScool-todo/static/css/main.096e0a52.css",
+    "main.js": "/ITScool-todo/static/js/main.54c72bef.js",
+    "index.html": "/ITScool-todo/index.html",
+    "main.096e0a52.css.map": "/ITScool-todo/static/css/main.096e0a52.css.map",
+    "main.54c72bef.js.map": "/ITScool-todo/static/js/main.54c72bef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.096e0a52.css",
+    "static/js/main.54c72bef.js"
+  ]
+}
