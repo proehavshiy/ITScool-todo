@@ -17,13 +17,15 @@ const App: FC = () => {
       value: 'hello',
     },
   ]
+
+
   return (
     <div className='app'>
       <Header />
       <main>
         <TodoListView todoItems={todos} />
       </main>
-      <Footer />
+      <Footer todoItems={todos} />
     </div>
   )
 }
